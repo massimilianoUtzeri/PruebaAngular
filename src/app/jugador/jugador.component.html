@@ -1,0 +1,51 @@
+
+    <p>Jugador con código HTML en un file externo</p>
+    <ol> 
+        <li>
+            Nombre: {{nombre}}
+        </li>
+        <li>
+            Apellido: {{apellido}}
+        </li>
+        <li>
+            Edad: {{getEdad() > 18? "Es mayor de edad" : "Es menor de edad"}}
+        </li>
+        <li>
+            Empresa: {{empresa}}
+        </li>
+        <li>
+            Nacionalidad: {{nacionalidad.value}}
+        </li>
+        <li>
+            Idiomas: {{idiomas.value}}
+        </li>
+        <li>
+            <label> Inserta tu nacionalidad: 
+                <input type="text" #nacionalidad>
+            </label> 
+            <input type="button" value="Confirma tu nacionalidad" (click)="addNacionalidad(nacionalidad.value)">
+        </li>
+       
+        <li>
+            <label> Idiomas: 
+                <input type="text" #idiomas (keyup)="0" [disabled]=habilitacionCuadro >
+            </label>
+        </li>
+
+        
+        <li>
+            {{textoDeRegistro}} --> Registrado: <input type="radio" value ="si" name="registro" id="registro" [checked]="usuarioRegistrado" (click) ="setUsuarioRegistrado($event)">
+
+                                    No Registrado: <input type="radio" value ="no" name="registro" id="registro" [checked]="usuarioRegistrado" (click) ="setUsuarioRegistrado($event)">
+            {{getRegistroUsuario()}}
+        </li>
+        <li>
+            Ciudad : {{ciudad}}
+        </li>
+        <li>
+            <!-- (input) = "cambiaCiudad($event)"-->
+            Inserta la ciudad : <input type="text" [(ngModel)] ="ciudad" >
+        </li>
+        
+    </ol>
+
